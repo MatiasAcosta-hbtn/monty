@@ -38,7 +38,8 @@ typedef struct instruction_s
         char *opcode;
 	void (*f)(stack_s **stack, unsigned int line_number);
 } instruction_t;
-search_opcode(char *, unsigned int, stack_s **, int);
+int search_opcode(char *, unsigned int, stack_s **);
 void f_push(stack_s **stack, unsigned int line_number);
 void f_pall(stack_s **stack, unsigned int line_number);
+stack_s *new_node(stack_s **);
 #endif

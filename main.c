@@ -1,6 +1,7 @@
 #include "monty.h"
 
 #define TOKEN_DELIM " \t\n\r"
+int number = 0;
 
 int main(int argc, char *argv[])
 {
@@ -9,10 +10,10 @@ int main(int argc, char *argv[])
 	size_t len = 0;
 	ssize_t nread;
 	unsigned int line_n = 0;
-	char *token = NULL, *token_2 = NULL;
+	char *token = NULL, *token_2;
 	int i = 0, j = 0, buffsize = 256;
 	stack_s *head = NULL;
-	int number = 0, flag = 0;
+	int flag = 0;
 
 	if (argc != 2)
 	{
@@ -25,8 +26,10 @@ int main(int argc, char *argv[])
 		fprintf(stderr, "Error: Can't open file<%s>\n", argv[0]);
 		exit(EXIT_FAILURE);
 	}
+	printf("Se creo tokens\n");
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
+		i = 0;
 		while (line[0] == 32)
 		{
 			line++;
@@ -37,15 +40,11 @@ int main(int argc, char *argv[])
 		}
 		printf("La linea es: %s\n", line);
 		token = strtok(line, TOKEN_DELIM);
-		if (strcmp(token, "push") == 0)
-		{
-			while (token != NULL)
-			{
-				token_2 = strtok(NULL, TOKEN_DELIM);
-				number = atoi(*token_2);
-			}
-		}
-		search_opcode(token,line_n, &head,number); 
+		printf("Se guardo el primer token\n");
+		token_2 = strtok(NULL, TOKEN_DELIM);
+		if (token_2 != NULL)
+			number = atoi(token_2);
+		search_opcode(token,line_n, &head);
 		line_n++;
 	}
 	free(line);
