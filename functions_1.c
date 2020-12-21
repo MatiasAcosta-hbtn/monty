@@ -14,7 +14,9 @@ int search_function(char *token, unsigned int line_n, stack_s **head)
 		}
 		i++;
 	}
-	return (0);
+	fprintf(stderr,"L<%u>: unknown instruction <opcode>\n",line_n);
+	free_stack(*head);
+	exit(EXIT_FAILURE);
 }
 
 void f_push(stack_s **stack, unsigned int line_number)
