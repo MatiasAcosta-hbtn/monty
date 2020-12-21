@@ -123,15 +123,10 @@ void f_pstr(stack_s **stack, unsigned int line_number)
 
 	(void)line_number;
 	if (*stack == NULL)
-		printf("\n");
-	/*while ((*stack))
 	{
-		if (isalpha((int)(*stack)->n) == 0 || (*stack)->n == 0) 
-			break;
-		
-		printf("%c", (*stack)->n);
-		(*stack) = (*stack)->next;
-	}*/
+		printf("\n");
+		return;
+	}
 	while ((aux))
 	{
 		if (aux->n <= 0 || aux->n > 127)
