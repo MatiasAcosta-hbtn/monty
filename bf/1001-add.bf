@@ -1,28 +1,14 @@
-,                # Read first number    
->                # Move the data pointer to next cell
-,                # Read the second number
->                # Move the data pointer to third cell 
-
-# Logic to convert ASCII numbers to their decimal format
-++++++++         # Init third cell to 8 
-[
- -
- <
- ------
- <
- ------
- >>
-]
-
-# Sum the numbers
-<                  # Move the pointer from 3rd cell to 2nd cell
-[
-  -
-  <
-  +
-  >
-]
-
-# Move to 1st cell and print the sum
-< .
-
+,                           ;read character and store it in p1
+------------------------------------------------   ;return ascii to Dec
+<                           ;move pointer to p2 (second byte)
+,                           ;read character and store it in p2
+------------------------------------------------ ;return ascii to Dec
+[                           ; enter loop
+-                           ; decrement p2
+>                           ; move to p1
++                           ; increment p1
+<                           ; move to p2
+]                           ; we exit the loop when the last cell is empty
+>                           ;go back to p1
+++++++++++++++++++++++++++++++++++++++++++++++++     ;return Dec to ascii
+.                           ;print p1
