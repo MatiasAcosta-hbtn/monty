@@ -105,14 +105,14 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
-	if (ascii >= 0 && ascii <= 127)
-		printf("%c\n", ascii);
-	else
+	if (ascii < 0 || ascii > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
 		free_stack(*stack);
 		exit(EXIT_FAILURE);
 	}
+	else
+		printf("%c\n", ascii);
 	return;
 }
 
