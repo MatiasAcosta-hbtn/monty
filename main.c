@@ -18,9 +18,9 @@ int main(int argc, char *argv[])
 	}
 	stream = fopen(argv[1], "r");
 	if (stream == NULL)
-	{ 
-		fprintf(stderr, "Error: Can't open file<%s>\n", argv[0]);
-        exit(EXIT_FAILURE);
+	{
+		fprintf(stderr, "Error: Can't open file <%s>\n", argv[0]);
+		exit(EXIT_FAILURE);
 	}
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
