@@ -37,6 +37,7 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 	stack_s *aux;
 	int stack_len = 0;
 	unsigned int temp, temp2;
+
 	(void)line_number;
 	stack_len = list_len(stack);
 	if (*stack != NULL && stack_len >= 2)
@@ -45,6 +46,7 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 		temp = aux->n;
 		while (aux->next)
 			aux = aux->next;
+		
 		temp2 = aux->n;
 		aux->n = temp;
 		aux = *stack;
