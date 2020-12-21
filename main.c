@@ -24,17 +24,16 @@ int main(int argc, char *argv[])
 	}
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
-        while (line[0] == 32) 
-             line++;
-         if (line[0] == '\n' || line[0] == '\0') 
-             continue;
+		while (line[0] == 32) 
+			line++;
+		if (line[0] == '\n' || line[0] == '\0') 
+			continue;
 		token = strtok(line, TOKEN_DELIM);
-        /*printf("%s\n", token);*/
 		token_2 = strtok(NULL, TOKEN_DELIM);
-        if (strcmp(token, "push") == 0)
-            check_token(token_2, line_n);
-        if (token && token[0] != '#')
-		    search_function(token, line_n, &head);
+        	if (strcmp(token, "push") == 0)
+			check_token(token_2, line_n);
+        	if (token && token[0] != '#')
+			search_function(token, line_n, &head);
 		line_n++;
 	}
 	free(line);
