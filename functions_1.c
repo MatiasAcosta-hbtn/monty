@@ -97,7 +97,7 @@ void f_pop(stack_s **stack, unsigned int line_number)
 
 void f_pchar(stack_s **stack, unsigned int line_number)
 {
-	int ascii = (*stack)->n;
+	/*int ascii = (*stack)->n;
 
 	if (*stack == NULL || stack == NULL)
 	{
@@ -113,7 +113,24 @@ void f_pchar(stack_s **stack, unsigned int line_number)
 	}
 	else
 		printf("%c\n", ascii);
-	return;
+	return;*/
+int number = 0;
+	stack_s *tmp = *stack;
+
+	if (!tmp)
+	{
+   fprintf(stderr, "L%u: can't pchar, stack empty\n", line_number);
+                free_stack(*stack);
+                exit(EXIT_FAILURE);
+	}
+	number = tmp->n;
+	if (number < 0 || number > 127)
+	{
+		 fprintf(stderr, "L%u: can't pchar, value out of range\n", line_number);
+                free_stack(*stack);
+                exit(EXIT_FAILURE);
+	}
+	printf("%c\n", tmp->n);
 }
 
 void f_pstr(stack_s **stack, unsigned int line_number)
