@@ -1,5 +1,6 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
@@ -7,6 +8,8 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <fcntl.h>
+#include <ctype.h>
+
 extern int number;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -35,11 +38,26 @@ typedef struct stack_s
 
 typedef struct instruction_s
 {
-        char *opcode;
+    char *opcode;
 	void (*f)(stack_s **stack, unsigned int line_number);
 } instruction_t;
-int search_opcode(char *, unsigned int, stack_s **);
+
+
+int search_function(char *, unsigned int, stack_s **);
 void f_push(stack_s **stack, unsigned int line_number);
 void f_pall(stack_s **stack, unsigned int line_number);
-stack_s *new_node(stack_s **);
+void check_token(char *token, unsigned int line_n);
+void f_pint(stack_s **stack, unsigned int line_number);
+void f_pop(stack_s **stack, unsigned int line_number);
+void f_nop(stack_s **stack, unsigned int line_number);
+void f_swap(stack_s **stack, unsigned int line_number);
+size_t list_len(stack_s **h);
+void f_add(stack_s **stack, unsigned int line_number);
+void f_sub(stack_s **stack, unsigned int line_number);
+void f_mul(stack_s **stack, unsigned int line_number);
+void f_div(stack_s **stack, unsigned int line_number);
+void f_mod(stack_s **stack, unsigned int line_number);
+void f_pchar(stack_s **stack, unsigned int line_number);
+void f_pstr(stack_s **stack, unsigned int line_number);
+void free_stack(stack_s *head);
 #endif
