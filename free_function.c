@@ -11,5 +11,4 @@ void free_stack(stack_s *head)
 		free(tmp);
 	}
 	free(head);
-	printf("Pila liberada\n");
 }
