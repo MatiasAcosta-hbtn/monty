@@ -2,8 +2,8 @@
 
 void f_rotl(stack_s **stack, unsigned int line_number)
 {
-    stack_s *aux, *new;
-    unsigned int temp;
+	stack_s *aux, *new;
+	unsigned int temp;
 	int stack_len = 0;
 
 	(void)line_number;
@@ -29,4 +29,5 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 		new->prev = aux;
 		new->next = NULL;
 	}
+	return;
 }
