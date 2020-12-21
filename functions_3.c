@@ -4,8 +4,11 @@ void f_rotl(stack_s **stack, unsigned int line_number)
 {
     stack_s *aux, *new;
     unsigned int temp;
+	int stack_len = 0;
+
 	(void)line_number;
-	if (*stack != NULL)
+	stack_len = list_len(stack);
+	if (*stack != NULL && stack_len >= 2)
 	{
 		new = malloc(sizeof(stack_s));
 		if (!new)
