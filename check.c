@@ -35,4 +35,4 @@ void check_token(char *token, unsigned int line_n)
 		exit(EXIT_FAILURE); 
     }
     
-    }
+}
