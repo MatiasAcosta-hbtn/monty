@@ -60,5 +60,4 @@ void f_rotr(stack_s **stack, unsigned int line_number)
 		aux->n = temp;
 		(*stack)->n = temp2;
 	}
-	return;
 }
