@@ -22,9 +22,9 @@ extern int number;
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_s;
 
 /**
@@ -35,13 +35,11 @@ typedef struct stack_s
  * Description: opcode and its function
  * for stack, queues, LIFO, FIFO Holberton project
  */
-
 typedef struct instruction_s
 {
-    char *opcode;
+	char *opcode;
 	void (*f)(stack_s **stack, unsigned int line_number);
 } instruction_t;
-
 
 int search_function(char *, unsigned int, stack_s **);
 void f_push(stack_s **stack, unsigned int line_number);
@@ -62,4 +60,7 @@ void f_pstr(stack_s **stack, unsigned int line_number);
 void free_stack(stack_s *head);
 void f_rotl(stack_s **stack, unsigned int line_number);
 void f_rotr(stack_s **stack, unsigned int line_number);
+void tokenize(char *line, stack_s **stack, unsigned int line_n);
+void func_main(char *);
 #endif
+
