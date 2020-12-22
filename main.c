@@ -43,7 +43,7 @@ void func_main(char *filename)
 	}
 	while ((nread = getline(&line, &len, stream)) != EOF)
 	{
-		while (line[0] == 32)
+		while (line[0] == 32 || line[0] == 9)
 		{
 			count++;
 			line++;
