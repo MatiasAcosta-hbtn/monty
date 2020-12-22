@@ -49,7 +49,10 @@ void func_main(char *filename)
 			line++;
 		}
 		if (line[0] == '\n' || line[0] == '\0')
+		{
+			line_n++;
 			continue;
+		}
 		tokenize(line, &stack, line_n);
 		line_n++;
 	}
